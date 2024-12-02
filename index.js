@@ -1,4 +1,4 @@
-const { Client, Collection, GatewayIntentBits, Partials, ActivityType } = require("discord.js");
+const { Client, Collection, GatewayIntentBits, Partials, ActivityType, ChannelType } = require("discord.js");
 const colors = require("colors");
 
 const client = new Client({
@@ -42,8 +42,8 @@ process.on("unhandledRejection", (error) => {
 })
 
 
-const requiredRoleIds = ['1299712975350792263', '1296199293694246962', '1305290946598146058']; 
-const guildId = '1271942181401399296';
+const requiredRoleIds = ['1313063692157587517', '1313063691339694110', '1313063690307899443']; 
+const guildId = '1313063556152950794';
 const checkInterval = 60000;
 
 client.once('ready', async () => {
