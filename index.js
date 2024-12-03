@@ -8,7 +8,7 @@ const client = new Client({
     failIfNotExists: false,
     presence: {
         activities: [{
-            name: `all sneakers`,
+            name: `les cops de nos membres !`,
             type: ActivityType.Watching,
             url: "https://www.twitch.tv/zqx"
         }],

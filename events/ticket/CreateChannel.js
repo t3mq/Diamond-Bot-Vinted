@@ -100,16 +100,17 @@ module.exports = {
                 parent: config.Category_es,
                 permissionOverwrites: [
                     {
-                        id: interaction.guild.id,
-                        deny: ['VIEW_CHANNEL'],
+                        id: interaction.user.id,
+                        allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ReadMessageHistory, PermissionFlagsBits.SendMessages],
+                        deny: [PermissionFlagsBits.MentionEveryone]
                     },
                     {
-                        id: interaction.user.id,
-                        allow: ['VIEW_CHANNEL'],
+                        id: interaction.guild.id,
+                        deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ReadMessageHistory, PermissionFlagsBits.SendMessages, PermissionFlagsBits.MentionEveryone]
                     },
                     {
                         id: support_es,
-                        allow: ['VIEW_CHANNEL'],
+                        allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ReadMessageHistory, PermissionFlagsBits.SendMessages],
                     }
                 ],
             }).then((c) => {
@@ -139,16 +140,17 @@ module.exports = {
                 parent: config.Category_pt,
                 permissionOverwrites: [
                     {
-                        id: interaction.guild.id,
-                        deny: ['VIEW_CHANNEL'],
+                        id: interaction.user.id,
+                        allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ReadMessageHistory, PermissionFlagsBits.SendMessages],
+                        deny: [PermissionFlagsBits.MentionEveryone]
                     },
                     {
-                        id: interaction.user.id,
-                        allow: ['VIEW_CHANNEL'],
+                        id: interaction.guild.id,
+                        deny: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ReadMessageHistory, PermissionFlagsBits.SendMessages, PermissionFlagsBits.MentionEveryone]
                     },
                     {
                         id: support_pt,
-                        allow: ['VIEW_CHANNEL'],
+                        allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.ReadMessageHistory, PermissionFlagsBits.SendMessages],
                     }
                 ],
             }).then((c) => {
