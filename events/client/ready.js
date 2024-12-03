@@ -73,5 +73,34 @@ module.exports = {
         await getLee();
         await getMath();
         await getP0dv();
+
+        let Accompagnement_Panel = client.channels.cache.get(config.Accompagnement);
+        Accompagnement_Panel.send({
+            components: [
+                new ActionRowBuilder()
+                .addComponents(
+                    new StringSelectMenuBuilder()
+                    .setCustomId('_accompagnement')
+                    .setPlaceholder('Sélectionnez un accompagnateur...')
+                    .addOptions(
+                        new StringSelectMenuOptionBuilder()
+                        .setLabel('Even')
+                        .setValue('even'),
+                        new StringSelectMenuOptionBuilder()
+                        .setLabel('Waiko')
+                        .setValue('waiko'),
+                        new StringSelectMenuOptionBuilder()
+                        .setLabel('Lee')
+                        .setValue('lee'),
+                        new StringSelectMenuOptionBuilder()
+                        .setLabel('Math')
+                        .setValue('math'),
+                        new StringSelectMenuOptionBuilder()
+                        .setLabel('P0dv')
+                        .setValue('podv'),
+                    )
+                )
+            ]
+        })
     }
 }
