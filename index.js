@@ -35,11 +35,11 @@ client.on("ready", async () => {
     await readyEvent.execute(client);
 });
 
-process.on("unhandledRejection", (error) => {
-    if (error.code == 10062) return; // Unknown interaction
+// process.on("unhandledRejection", (error) => {
+//     if (error.code == 10062) return; // Unknown interaction
 
-    console.log(`[ERROR] ${error}`.red);
-})
+//     console.log(`[ERROR] ${error}`.red);
+// })
 
 
 const requiredRoleIds = ['1313063692157587517', '1313063691339694110', '1313063690307899443']; 
