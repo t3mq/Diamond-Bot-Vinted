@@ -1,6 +1,6 @@
 const colors = require('colors');
 const config = require('../../settings/config');
-const { ActionRowBuilder, Colors, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, Colors, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder, StringSelectMenuOptionBuilder } = require('discord.js');
 
 module.exports = {
     name: 'ready',
@@ -29,6 +29,90 @@ module.exports = {
                 )
             ]
         });
+        let Role = client.channels.cache.get(config.RoleLang);
+        await clearChannel(Role);
+        
+        async function getRole() {
+            let Role = client.channels.cache.get(config.RoleLang);
+            Role.send({
+                embeds: [{
+                    description: "> 🇫🇷 | Choisissez le rôle par rapport à votre langue.\n> 🇪🇸 | Elige el papel para tu idioma.\n> 🇵🇹 | Escolha a função para a sua língua.",
+                    color: Colors.Blurple
+                }],
+                components: [
+                    new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder() .setCustomId('french') .setLabel('🇫🇷') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('spanish') .setLabel('🇪🇸') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('portuguese') .setLabel('🇵🇹') .setStyle(ButtonStyle.Primary)
+                    )
+                ]
+            });
+        }
+        await getRole();
+
+        let RoleFr_Channel = client.channels.cache.get(config.RoleFr);
+        await clearChannel(RoleFr_Channel);
+        let RoleEs_Channel = client.channels.cache.get(config.RoleEs);
+        await clearChannel(RoleEs_Channel);
+        let RolePt_Channel = client.channels.cache.get(config.RolePt);
+        await clearChannel(RolePt_Channel);
+
+        async function getRoleFr() {
+            let RoleFr = client.channels.cache.get(config.RoleFr);
+            RoleFr.send({
+                embeds: [{
+                    description: `Pour éviter de vous ping trop régulièrement nous avons mis en place un système de notification pour vous :\n> - 📢 | <@&${config.Annonce}> : pour les annonce.\n> - 🎉 | <@&${config.Event}> : pour les événements.\n> - 📞 | <@&${config.Call}> : pour les conseils / appels.`,
+                    color: Colors.Blurple
+                }],
+                components: [
+                    new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder() .setCustomId('annonce_fr') .setLabel('📢') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('evenement_fr') .setLabel('🎉') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('conseil_fr') .setLabel('📞') .setStyle(ButtonStyle.Primary)
+                    )
+                ]
+            })
+        }
+        async function getRoleEs() {
+            let RoleEs = client.channels.cache.get(config.RoleEs);
+            RoleEs.send({
+                embeds: [{
+                    description: `Para que no te pingamos demasiado, hemos establecido un sistema de notificación para ti :\n> - 📢 | <@&${config.Annonce}> : para anuncios.\n> - 🎉 | <@&${config.Event}> : para eventos.\n> - 📞 | <@&${config.Call}> : para consejos / llamadas.`,
+                    color: Colors.Blurple
+                }],
+                components: [
+                    new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder() .setCustomId('annonce_es') .setLabel('📢') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('evenement_es') .setLabel('🎉') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('conseil_es') .setLabel('📞') .setStyle(ButtonStyle.Primary)
+                    )
+                ]
+            })
+        }
+        async function getRolePt() {
+            let RolePt = client.channels.cache.get(config.RolePt);
+            RolePt.send({
+                embeds: [{
+                    description: `Para evitar que o contactemos com demasiada regularidade, criámos um sistema de notificações para si:\n> - 📢 | <@&${config.Annonce}> : para anúncios.\n> - 🎉 | <@&${config.Event}> : para eventos.\n> - 📞 | <@&${config.Call}> : para dicas / chamadas.`,
+                    color: Colors.Blurple
+                }],
+                components: [
+                    new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder() .setCustomId('annonce_pt') .setLabel('📢') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('evenement_pt') .setLabel('🎉') .setStyle(ButtonStyle.Primary),
+                        new ButtonBuilder() .setCustomId('conseil_pt') .setLabel('📞') .setStyle(ButtonStyle.Primary)
+                    )
+                ]
+            })
+        }
+
+        await getRoleFr();
+        await getRoleEs();
+        await getRolePt();
 
         let Accompagnement = client.channels.cache.get(config.Accompagnement);
         clearChannel(Accompagnement);
