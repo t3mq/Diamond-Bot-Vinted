@@ -123,21 +123,38 @@ module.exports = {
                 embeds : [
                     {   
                         thumbnail: {
-                            url: client.user.displayAvatarURL()
+                            url: "https://images-ext-1.discordapp.net/external/6bC7cOBM7gsQDuwj2Q3L_ZHFC9AxBM9b3KmWi7AgHe0/https/cdn.discordapp.com/avatars/1120007299218550904/e0b3c1bb724b498f406ab494cd0b32f8.png?format=webp&quality=lossless&width=160&height=160"
                         },
                         description: `## Bonjour à tous,\n\nJe me présente, **Clément**, accompagnateur spécialisé dans le domaine du **resell sur Vinted**.\n\nAvec **plus d’un an d’expérience** dans l’achat et la revente, je mets mes compétences à votre service pour vous aider à organiser votre activité, atteindre vos objectifs, et développer votre réussite sur cette plateforme.\n\n### Mon objectif :\nVous guider étape par étape, que vous soyez **débutant** ou déjà familiarisé avec Vinted.\nJe vous accompagnerai dans :\n- La création et l’optimisation de votre compte.\n- La mise en place de stratégies pour **générer vos premiers revenus** et développer une activité rentable.\n\n### Pourquoi me choisir ?\nJe suis à votre **disposition** pour :\n\n\n- Répondre à toutes vos questions.\n- Partager mon expertise.\n- Vous conseiller et vous accompagner au quotidien.\n\nSi vous souhaitez en savoir plus ou commencer dès maintenant, **n’hésitez pas à me contacter** !\n\n---\n\nAu plaisir de vous accompagner dans votre projet. 😊`,
                         color: Colors.Blurple,
                         footer: {
                             text: "Diamond Assistance",
                             iconURL: client.user.displayAvatarURL()
-                        }
+                        },
+                        timestamp: new Date()
                     }
                 ]
             })
         }
 
         async function getEven() {
-
+            let Channel = client.channel.cache.get(config.Accompagnement);
+            Channel.send({
+                embeds: [
+                    {
+                        thumbnail: {
+                            url: "https://images-ext-1.discordapp.net/external/evxh4ZWMZ14vsoFDRcgnlPMGEMElvyVKDMJ94sEN34E/https/cdn.discordapp.com/avatars/975444527588462643/7fa901b3d14a3fb228940aad27072b1b.png?format=webp&quality=lossless&width=160&height=160"
+                        },
+                        description: "Salut ! moi c’est Even\n\nJe fais du resell depuis plus de 8 mois et je fais quasiment 300-400 par semaine\n\nJe suis ici pour aider et accompagner les personnes qui sont sous mon aile afin qu’elle fasses leurs premier chiffre d’affaires rapidement,\nje t’aiderai dans :\n\nfondation de compte Vinted, photo, description / comment autobuy, autocop, quoi acheter et à quel prix et à combien le revendre, réponse a vaux questions ect !!\n\nIl y a une vingtaine de personnes sous mon ail actuellement qui on déjà fait leurs premier chiffres,  alors si tu  hésite à te lancer ou que tu as besoin de quoi que ce sois alors dm moi 😉",
+                        color: Colors.Blurple,
+                        footer: {
+                            text: "Diamond Assistance",
+                            iconURL: client.user.displayAvatarURL()
+                        },
+                        timestamp: new Date()
+                    }
+                ]
+            })
         }
 
         async function getWaiko() {
@@ -152,6 +169,27 @@ module.exports = {
 
         }
 
+        async function getGamix() {
+            let Channel = client.channels.cache.get(config.Accompagnement);
+            Channel.send({
+                embeds: [
+                    {
+                        thumbnail: {
+                            url: "https://images-ext-1.discordapp.net/external/-E4rRqFXiCmJh2n6592KUr84tJIZNQfsKuFUzoRLQEg/https/cdn.discordapp.com/avatars/496357757113466881/b50b355f2d8a2b1c423c267ee533a5c2.png?format=webp&quality=lossless&width=160&height=160"
+                        },
+                        description: "Bonjour,\n\nJe m'appelle Léo et je suis accompagnateur personnel. J'ai plus de deux ans d'expérience dans le domaine du resell. Mon objectif est de vous aider à organiser votre quotidien et à atteindre vos objectifs personnels et professionnels.\n\nJe suis là pour vous offrir un soutien personnalisé et adapté à vos besoins. Grâce à mon expérience, je peux vous conseiller et vous accompagner efficacement.\n\nN'hésitez pas à me contacter pour en savoir plus.",
+                        color: Colors.Blurple,
+                        footer: {
+                            text: "Diamond Assistance",
+                            iconURL: client.user.displayAvatarURL()
+                        },
+                        timestamp: new Date()
+                    }
+                ]
+            }) 
+        }
+
+        await getGamix();
         await getEven();
         await getWaiko();
         await getLee();
