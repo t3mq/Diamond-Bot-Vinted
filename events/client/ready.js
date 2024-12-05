@@ -114,9 +114,6 @@ module.exports = {
         await getRoleEs();
         await getRolePt();
 
-        let Accompagnement = client.channels.cache.get(config.Accompagnement);
-        clearChannel(Accompagnement);
-
         async function getP0dv() {
             let Channel = client.channels.cache.get(config.Accompagnement)
             Channel.send({
@@ -138,7 +135,7 @@ module.exports = {
         }
 
         async function getEven() {
-            let Channel = client.channel.cache.get(config.Accompagnement);
+            let Channel = client.channels.cache.get(config.Accompagnement);
             Channel.send({
                 embeds: [
                     {
@@ -188,6 +185,8 @@ module.exports = {
                 ]
             }) 
         }
+        let Accompagnement_Panel = client.channels.cache.get(config.Accompagnement);
+        await clearChannel(Accompagnement_Panel);
 
         await getGamix();
         await getEven();
@@ -196,8 +195,7 @@ module.exports = {
         await getMath();
         await getP0dv();
 
-        let Accompagnement_Panel = client.channels.cache.get(config.Accompagnement);
-        Accompagnement_Panel.send({
+        await Accompagnement_Panel.send({
             components: [
                 new ActionRowBuilder()
                 .addComponents(

@@ -90,6 +90,15 @@ module.exports = {
                         )
                     ]
                 })
+                c.send({
+                    content: `<@&${support_fr}> <@${interaction.user.id}>`
+                }).then(m => {
+                    m.delete(), 1000
+                });
+            });
+            interaction.reply({
+                content: "Votre ticket a été créé avec succès !",
+                ephemeral: true
             });
         }
 
@@ -131,11 +140,20 @@ module.exports = {
                         )
                     ]
                 })
+                c.send({
+                    content: `<@&${support_es}> <@${interaction.user.id}>`
+                }).then(m => {
+                    m.delete(), 1000
+                });
+            })
+            interaction.reply({
+                content: `Su billete se ha creado correctamente !`,
+                ephemeral: true
             })
         }
         if (interaction.customId === "ticket_pt") {
             let ticket_es = interaction.guild.channels.create({
-                name: `🎫-Ticket-de-${interaction.user.username}`,
+                name: `🎫-Bilhete-${interaction.user.username}`,
                 type: ChannelType.GuildText,
                 parent: config.Category_pt,
                 permissionOverwrites: [
@@ -171,6 +189,15 @@ module.exports = {
                         )
                     ]
                 })
+                c.send({
+                    content: `<@&${support_pt}> <@${interaction.user.id}>`
+                }).then(m => {
+                    m.delete(), 1000
+                });
+            })
+            interaction.reply({
+                content: `O seu bilhete foi criado com sucesso !`,
+                ephemeral: true
             })
         }
     }
