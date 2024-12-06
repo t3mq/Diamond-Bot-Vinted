@@ -74,7 +74,7 @@ module.exports = {
             await interaction.showModal(modal)
         }
 
-        if (interaction.values[0] == "p0dv") {
+        if (interaction.values[0] == "podv") {
             const modal = new ModalBuilder()
                 .setCustomId('modal_p0dv')
                 .setTitle('Fiche de renseignement')

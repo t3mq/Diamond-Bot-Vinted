@@ -29,7 +29,7 @@ module.exports = {
             
             console.log(`All messages in ${channel.name} have been cleared!`);
         }
-        
+
         let Ticket = client.channels.cache.get(config.Ticket);
         await clearChannel(Ticket);
         await Ticket.send({
@@ -224,8 +224,8 @@ module.exports = {
                         .setLabel('Waiko')
                         .setValue('waiko'),
                         new StringSelectMenuOptionBuilder()
-                        .setLabel('Lee')
-                        .setValue('lee'),
+                        .setLabel('Gamix')
+                        .setValue('gamix'),
                         new StringSelectMenuOptionBuilder()
                         .setLabel('Math')
                         .setValue('math'),
