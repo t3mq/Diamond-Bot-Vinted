@@ -11,11 +11,25 @@ module.exports = {
         async function clearChannel(channel) {
             let fetched;
             do {
+                // Récupère les 100 derniers messages
                 fetched = await channel.messages.fetch({ limit: 100 });
-                await channel.bulkDelete(fetched);
-            } while (fetched.size >= 2);
+                // Filtrer les messages supprimables (moins de 14 jours)
+                const deletable = fetched.filter(msg => (Date.now() - msg.createdTimestamp) < 14 * 24 * 60 * 60 * 1000);
+                
+                // Supprime en bulk les messages supprimables
+                if (deletable.size > 0) {
+                    await channel.bulkDelete(deletable, true).catch(console.error);
+                }
+                
+                // Pour les messages trop anciens, les supprimer un par un
+                for (const message of fetched.filter(msg => !deletable.has(msg.id))) {
+                    await message[1].delete().catch(console.error);
+                }
+            } while (fetched.size > 0);
+            
+            console.log(`All messages in ${channel.name} have been cleared!`);
         }
-
+        
         let Ticket = client.channels.cache.get(config.Ticket);
         await clearChannel(Ticket);
         await Ticket.send({

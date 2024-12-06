@@ -42,8 +42,8 @@ client.on("ready", async () => {
 // })
 
 
-const requiredRoleIds = ['1313063692157587517', '1313063691339694110', '1313063690307899443']; 
-const guildId = '1313063556152950794';
+const requiredRoleIds = ['1299712975350792263', '1296199293694246962', '1305290946598146058']; 
+const guildId = '1271942181401399296';
 const checkInterval = 60000;
 
 client.once('ready', async () => {
